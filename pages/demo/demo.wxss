@@ -1,0 +1,39 @@
+/* pages/demo/demo.wxss */
+/* page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+.container {
+  /* border:1px solid red; */
+  flex:1;
+  overflow-y: hidden;
+  margin-top: -50px;
+}
+.container .title {
+  /* border:1px solid navy; */
+  text-align: center;
+  font-size: 20px;
+}
+.div2 {
+  border-top:1px dashed gray;
+  width: 95%;
+  margin: 0 auto;
+}
+input {
+  border:1px solid black;
+  width: 85%;
+  margin: 0 auto;
+}
+label {
+  /* border:1px solid black; */
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  line-height: 30px;
+}
+textarea {
+  border:1px solid black;
+  width: 85%;
+  margin: 0 auto;
+}

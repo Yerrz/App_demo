@@ -1,0 +1,100 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="div1">
+    <view class="title"><text>大学生恋爱观调查</text></view>
+  </view>
+  <view class="div2">
+    <form bindsubmit="" class="form">
+      <view class="lis01">
+        <text>1、你的年级是：</text>
+        <view class="onselect">
+          <radio-group bindchange="radioChange">
+            <label class="onselect_item" wx:for="{{items}}" wx:key="{{item.value}}">
+              <view class="onselect_value">
+                <radio value="{{item.value}}" class="radio"/>{{item.name}}
+              </view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="lis02">
+        <text>2、你的性别是：</text>
+        <view class="onselect">
+          <view class="onselect_value">
+            <radio value="男" class="radio"/>男
+          </view>
+          <view class="onselect_value">
+            <radio value="女" class="radio"/>女
+          </view>
+        </view>
+      </view>
+      <view class="lis03">
+        <text>3、你每个月的生活费用是多少元？</text>
+        <view class="onselect">
+          <input type="text" name="que03" />
+        </view>
+      </view>
+      <view class="lis04">
+        <text>4、你每个月的生活费来源是？</text>
+        <view class="onselect">
+          <input type="text" name="que034" />
+        </view>
+      </view>
+      <view class="lis06">
+        <text>5、你恋爱时通常会消费在那些方面？</text>
+        <textarea placeholder="..." name="textarea" style="border:1px solid gray;width:90%;margin: 0 auto;" />
+      </view>
+      <view class="lis06">
+        <text>6、你的爱好？</text>
+        <view>
+          <checkbox-group bindchange="checkboxChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
+        </checkbox-group>
+        </view>
+      </view>
+      <button class="mini-btn" type="primary" size="mini">按钮</button>
+    </form>
+  </view>
+</scroll-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
