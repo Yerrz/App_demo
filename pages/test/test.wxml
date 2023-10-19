@@ -1,43 +1,69 @@
 <!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
+<!-- <text>pages/test/test.wxml</text> -->
 
-
-<view class="container">
-  <view class="page-body">
-    <form catchsubmit="formSubmit" catchreset="formReset">
-
-      <view class="page-section page-section-gap">
-        <view class="page-section-title">radio</view>
-        <radio-group name="radio">
-          <label><radio value="radio1"/>单选项一</label>
-          <label><radio value="radio2"/>单选项二</label>
+<scroll-view class="container" scroll-y type="list">
+  <view class="div1">
+    <view class="title"><text>大学生生活调查</text></view>
+  </view>
+  <view class="div2">
+    <form bindsubmit="submitForm">
+      <view class="ques_div01">
+        <text>1、你的生活费用是多少元？</text>
+        <input name="ques1" />
+      </view>
+      <view class="ques_div02">
+        <text>2、你的生活来源是？</text>
+        <input name="ques2" />
+      </view>
+      <view class="ques_div03">
+        <text>3、你的年级是：</text>
+        <radio-group name="ques3">
+          <label><radio value="大一"/>大一</label>
+          <label><radio value="大二"/>大二</label>
+          <label><radio value="大三"/>大三</label>
+          <label><radio value="大四"/>大四</label>
         </radio-group>
       </view>
-
-      <view class="page-section page-section-gap">
-        <view class="page-section-title">checkbox</view>
-        <checkbox-group name="checkbox">
-          <label><checkbox value="checkbox1"/>多选项一</label>
-          <label><checkbox value="checkbox2"/>多选项二</label>
+      <view class="ques_div04">
+        <text>4、你通常消费在那些方面？</text>
+        <checkbox-group name="ques4">
+          <label><checkbox value="购物"/>购物</label>
+          <label><checkbox value="饮食"/>饮食</label>
+          <label><checkbox value="娱乐"/>娱乐</label>
+          <label><checkbox value="旅游"/>旅游</label>
+          <label><checkbox value="交通"/>交通</label>
+          <label><checkbox value="通讯"/>通讯</label>
+          <label><checkbox value="礼物"/>礼物</label>
+          <label><checkbox value="其他"/>其他</label>
         </checkbox-group>
       </view>
-
-      <view class="page-section">
-        <view class="page-section-title">input</view>
-        <view class="weui-cells weui-cells_after-title">
-          <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__bd" style="margin: 30rpx 0" >
-              <input class="weui-input" name="input" placeholder="这是一个输入框" />
-            </view>
-          </view>
-        </view>
+      <view class="ques_div05">
+        <text>5、你的性别是：</text>
+        <radio-group name="ques5">
+          <label><radio value="男"/>男</label>
+          <label><radio value="女"/>女</label>
+        </radio-group>
       </view>
-
-      <view class="btn-area">
-        <button style="margin: 30rpx 0" type="primary" formType="submit">Submit</button>
-        <button style="margin: 30rpx 0" formType="reset">Reset</button>
+      <view class="ques_div06">
+        <text>6、你觉得自己会因为恋爱消费而导致生活紧张吗？</text>
+        <radio-group name="ques6">
+          <label><radio value="不会有影响"/>不会有影响</label>
+          <label><radio value="会有很大影响"/>会有很大影响</label>
+          <label><radio value="多少会有点影响"/>多少会有点影响</label>
+        </radio-group>
       </view>
+      <view class="ques_div07">
+        <text>7、你对我们的建议是：</text>
+        <textarea name="ques7"/>
+      </view>
+      <button style="margin: 0 auto;margin-top: 30px;" type="primary" formType="submit">提交</button>
     </form>
   </view>
+</scroll-view>
 
-</view>
+<!-- 获取数据库信息 -->
+<!-- <view wx:for="{{textdata}}">
+  <text>{{item.id}}</text>
+  <text>{{item.name}}</text>
+</view> -->
+

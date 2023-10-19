@@ -1,2 +1,65 @@
 <!--pages/success/success.wxml-->
-<text>提交成功！</text>
+<view style="height: 100px;">
+  <!-- <text>uuid:{{info.uuid}}</text> -->
+  <text style="color:rgb(16, 235, 16);font-size: 18px;margin-left:20px;text-align: center;display: block;line-height: 100px;">提交成功！</text>
+</view>
+<view>
+  <navigator url="/pages/update/update"><text style="font-size: 16px;text-decoration: underline;color: rgb(194, 193, 191);">点击去修改</text></navigator>
+  <navigator url="/pages/select/select"><text style="font-size: 16px;text-decoration: underline;color: rgb(194, 193, 191);">查看我的问卷</text></navigator>
+</view>
+
+<!-- <text style="color:red;font-size: 18px;">提交成功！</text> -->
+
+<!-- <scroll-view class="container" scroll-y type="list">
+  <view class="div1">
+    <view class="title"><text>大学生生活调查</text></view>
+  </view>
+  <view class="div2">
+    <view>
+      <view class="ques_div01">
+        <text>1、你的生活费用是多少元？</text>
+        <input name="ques1" value="{{info.ques1}}" disabled />
+      </view>
+      <view class="ques_div02">
+        <text>2、你的生活来源是？</text>
+        <input name="ques2" value="{{info.ques2}}" disabled />
+      </view>
+      <view class="ques_div03">
+        <text>3、你的年级是：</text>
+        <radio-group name="ques3">
+          <view wx:for="{{ques3_radio}}" wx:key="key">
+            <label><radio value="{{item.grade}}" disabled checked="{{item.sta}}"/>{{item.grade}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div04">
+        <text>4、你通常消费在那些方面？</text>
+        <checkbox-group name="ques4">
+          <view wx:for="{{ques4_radio}}" wx:key="key">
+            <label><checkbox value="{{item.cost}}" checked="{{item.sta}}" disabled />{{item.cost}}</label>
+          </view>
+        </checkbox-group>
+      </view>
+      <view class="ques_div05">
+        <text>5、你的性别是：</text>
+        <radio-group name="ques5">
+          <view wx:for="{{ques5_radio}}" wx:key="key">
+            <label><radio value="{{item.sex}}" checked="{{item.sta}}" disabled />{{item.sex}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div06">
+        <text>6、你觉得自己会因为恋爱消费而导致生活紧张吗？</text>
+        <radio-group name="ques6">
+          <view wx:for="{{ques6_radio}}" wx:key="key">
+            <label><radio value="{{item.influ}}" checked="{{item.sta}}" disabled />{{item.influ}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div07">
+        <text>7、你对我们的建议是：</text>
+        <textarea name="ques7" value="{{info.ques7}}" disabled />
+      </view>
+    </view>
+  </view>
+</scroll-view> -->

@@ -52,7 +52,7 @@
         </radio-group>
       </view>
       <view class="ques_div07">
-        <text>6、你对我们的建议是：</text>
+        <text>7、你对我们的建议是：</text>
         <textarea name="ques7"/>
       </view>
       <button style="margin: 0 auto;margin-top: 30px;" type="primary" formType="submit">提交</button>

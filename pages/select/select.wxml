@@ -1,0 +1,55 @@
+<!--pages/select/select.wxml-->
+<!-- <text>pages/select/select.wxml</text> -->
+<scroll-view class="container" scroll-y type="list">
+  <view class="div1">
+    <view class="title"><text>大学生生活调查</text></view>
+  </view>
+  <view class="div2">
+    <form bindsubmit="updateForm">
+      <view class="ques_div01">
+        <text>1、你的生活费用是多少元？</text>
+        <input name="ques1"  value="{{select_info.ques1}}" disabled />
+      </view>
+      <view class="ques_div02">
+        <text>2、你的生活来源是？</text>
+        <input name="ques2" value="{{select_info.ques2}}" disabled />
+      </view>
+      <view class="ques_div03">
+        <text>3、你的年级是：</text>
+        <radio-group name="ques3">
+          <view wx:for="{{ques3}}" wx:key="key">
+            <label><radio value="{{item.grade}}" checked="{{item.sta}}" disabled />{{item.grade}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div04">
+        <text>4、你通常消费在那些方面？</text>
+        <checkbox-group name="ques4">
+          <view wx:for="{{ques4}}" wx:key="key">
+            <label><checkbox value="{{item.cost}}" checked="{{item.sta}}" disabled />{{item.cost}}</label>
+          </view>
+        </checkbox-group>
+      </view>
+      <view class="ques_div05">
+        <text>5、你的性别是：</text>
+        <radio-group name="ques5">
+          <view wx:for="{{ques5}}" wx:key="key">
+            <label><radio value="{{item.sex}}" checked="{{item.sta}}" disabled />{{item.sex}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div06">
+        <text>6、你觉得自己会因为恋爱消费而导致生活紧张吗？</text>
+        <radio-group name="ques6">
+          <view wx:for="{{ques6}}" wx:key="key">
+            <label><radio value="{{item.influ}}" checked="{{item.sta}}" disabled />{{item.influ}}</label>
+          </view>
+        </radio-group>
+      </view>
+      <view class="ques_div07">
+        <text>7、你对我们的建议是：</text>
+        <textarea name="ques7" value="{{select_info.ques7}}" disabled />
+      </view>
+    </form>
+  </view>
+</scroll-view>

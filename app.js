@@ -10,6 +10,17 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if(res.code){
+          wx.request({
+            url:"http://test.com/php/index.php",
+            data:{
+              code:res.code
+            }
+          })
+        }
+        else{
+          console.log('登录失败！' + res.errMsg)
+        }
       }
     })
   },

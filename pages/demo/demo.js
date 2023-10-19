@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    textdata:[]
+    uuid:[]
+    // textdata:[]
   },
 
   /**
@@ -13,21 +14,28 @@ Page({
    */
   // 发送请求并获取数据库数据显示在页面
   onLoad: function (options) {
-    wx.request({
-      url: 'http://127.0.0.1/php/demo1.php', //仅为示例，并非真实的接口地址
-      data: {
-        action: 'read',
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: result=> {
-        console.log(result.data),
-        this.setData({
-          textdata:result.data.uesrs,
-        })
-      }
-    })
+    const userCryptoManager = wx.getUserCryptoManager()
+    userCryptoManager.getLatestUserKey({
+    success: res => {
+      const {encryptKey, iv, version, expireTime} = res
+      console.log(encryptKey, iv, version, expireTime)
+    }
+})
+    // wx.request({
+    //   url: 'http://127.0.0.1/php/demo1.php', //接口地址
+    //   data: {
+    //     action: 'read',
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: result=> {
+    //     console.log("发送请求成功！提交的数据为：",result.data),
+    //     this.setData({
+    //       textdata:result.data.uesrs,
+    //     })
+    //   }
+    // })
   },
 
   /**
@@ -92,6 +100,7 @@ Page({
     //     console.log('form发生了submit事件，携带数据为：', e.detail.value) 
     //   }
     // })
+    var that = this;
 
     if (e.detail.value.ques1.length == 0 || e.detail.value.ques2.length == 0  || e.detail.value.ques3.length == 0 || e.detail.value.ques4.length == 0) {
       wx.showToast({
@@ -101,8 +110,25 @@ Page({
       })
     }
     else{
+      // // 获取uuid的请求
+      // wx.request({
+      //   url: 'http://127.0.0.1/php/form.php',
+      //   data:{
+      //     action:'readuuid'
+      //   },
+      //   header: {
+      //     'content-type': 'application/json' // 默认值
+      //   },
+      //   success: result=> {
+      //     console.log("发送请求成功！返回的数据为：",result.data),
+      //     this.setData({
+      //       uuid:result.data.unique_id
+      //     })
+      //   }
+      // })
+
       wx.request({ 
-        url: 'http://127.0.0.1/php/form.php',      
+        url: 'http://192.168.100.68/php/form.php',      
         method: 'POST',     
         data: {
           ques1:e.detail.value.ques1,
@@ -118,26 +144,56 @@ Page({
         }, 
         success: function(res) {     
           // console.log(res.data),
-          console.log('form发生了submit事件，携带数据为：', e.detail.value) 
-          if (res.data.status == 0) {
+          console.log('form发生了submit事件，携带数据为：', e.detail.value)
+          that.setData({
+            uuid:res.data.u_id
+          })
+          console.log("uuid:",that.data.uuid)
+          console.log("res.data",res.data)
+
+          if (res.data.status == 400) {
             wx.showToast({     
-            title: '提交失败！！！',    
+            title: '提交失败！请检查输入内容规范！',    
             icon: 'loading',
             duration: 1500
             })
           } 
           else {  
+            //获取的PHP页面form.php的u_id问卷唯一标识
+            // console.log(res.data.u_id)
+
             // wx.showToast({  
-            // title: '提交成功！！！',//这里打印出登录成功
+            // title: "操作成功！",//这里打印出登录成功
             // icon: 'success',
             // duration: 1000
             // })
-            wx.redirectTo({
-              url: '/pages/success/success',
+            wx.setStorage({
+              key:"formdata",
+              data: {
+                ques1:e.detail.value.ques1,
+                ques2:e.detail.value.ques2,
+                ques3:e.detail.value.ques3,
+                ques4:e.detail.value.ques4,
+                ques5:e.detail.value.ques5,
+                ques6:e.detail.value.ques6,
+                ques7:e.detail.value.ques7,
+                uuid:that.data.uuid
+              },
+              success(res) {
+                console.log("success:",e.detail.value);
+                wx.redirectTo({
+                  url: '/pages/success/success',
+                })
+              }
             })
+            // wx.redirectTo({
+            //   url: '/pages/success/success',
+            // })
           }
         }
       })
+
+      
     }
 
 

@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<text>授权页面</text>
+<button bindtap="login" wx:if="{{!userInfo}}">点击</button>
+<view wx:else>
+  <view><image src="{{userInfo.avatarUrl}}" mode=""/></view>
+  <view>{{userInfo.nickName}}</view>
+  <button bindtap="logout">退出授权</button>
+</view>

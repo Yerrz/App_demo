@@ -4,7 +4,11 @@
     "pages/index/index",
     "pages/test/test",
     "pages/logs/logs",
-    "pages/success/success"
+    "pages/success/success",
+    "pages/update/update",
+    "pages/select/select",
+    "pages/home/home"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
